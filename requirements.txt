@@ -1,0 +1,6 @@
+tqdm==4.64.1
+rich==13.9.4
+requests==2.31.0
+pycryptodome==3.21.0
+argumentparser==1.2.1
+beautifulsoup4==4.12.2
