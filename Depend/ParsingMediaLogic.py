@@ -6,6 +6,8 @@ Update Time: 2024-12-15
 解碼參考來源: https://cloud.tencent.com/developer/article/2258872
 """
 from tqdm import tqdm
+from dateutil import tz
+from datetime import datetime
 import os, requests, subprocess
 from bs4 import BeautifulSoup
 from Crypto.Cipher import AES
@@ -20,6 +22,7 @@ class ParsingMediaLogic:
         self.path = os.getcwd() + '\\' + obj.path
         self.console = Console()
 
+        self.log_record()
         self.todo_list = []
         self.headers = ParsingMediaLogic.update_headers()
         self.session = requests.Session()
@@ -53,6 +56,20 @@ class ParsingMediaLogic:
         for symbol in ['/', '<' , '>', ':', '|', '?', '*', '"']:
             get_title = get_title.replace(symbol, '')
         return get_title
+
+    @staticmethod
+    def utc_to_now():
+        return datetime.fromtimestamp(datetime.utcnow().timestamp() + 28800).replace(tzinfo=tz.gettz('Asia/Taipei'))
+
+    def log_record(self):
+        file = self.path + '\\downloads_log.txt'
+        content = f'{str(ParsingMediaLogic.utc_to_now())[:19]} | {self.url}\n'
+        if not os.path.exists(file):
+            with open(file, 'w') as f:
+                f.write(content)
+        else:
+            new = [i for i in open(file, 'r')] + [content]
+            open(file, 'w').write(''.join(new))
 
     def progress_bar(self, task: str, symbol: str='━'):
         if task == 'Args':

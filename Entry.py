@@ -15,8 +15,8 @@ class Entry:
     def main(self):
         ap = AP(self)
         ap.config_once()
-        di = ParsingMediaLogic(self)
-        di.main()
+        pm = ParsingMediaLogic(self)
+        pm.main()
 
 if __name__ == '__main__':
     entry = Entry()
