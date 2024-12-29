@@ -3,8 +3,8 @@
 @author: PC
 Update Time: 2024-12-15
 """
-from Depend.ParsingMediaLogic import ParsingMediaLogic
-from Depend.ArgumentParser import AP
+from package.ParsingMediaLogic import ParsingMediaLogic
+from package.ArgumentParser import AP
 
 class Entry:
     def __init__(self):

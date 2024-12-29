@@ -42,7 +42,7 @@ class ParsingMediaLogic:
 
     @staticmethod
     def update_headers() -> dict:
-        txt = [i for i in open(os.getcwd() + '\\Depend\\permissions.txt', 'r')]
+        txt = [i for i in open(os.getcwd() + '\\package\\permissions.txt', 'r')]
         headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
             'authorization': txt[0].split(',')[-1].replace('\n', ''),

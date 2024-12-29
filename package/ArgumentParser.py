@@ -21,8 +21,8 @@ class AP:
                            default='', type=str)
 
         parse.add_argument('-p', '--path',
-                           help="give a save path | ex: './Media/'",
-                           default='Media', type=str)
+                           help="give a save path | ex: './media/'",
+                           default='media', type=str)
 
         return parse.parse_args()
 

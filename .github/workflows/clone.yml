@@ -44,7 +44,7 @@ jobs:
                 echo $gist_id | gh secret set GIST_ID
                 echo ::set-output name=GIST::$gist_id
                 cp Parsing-Media-From-JVID_clone.json Parsing-Media-From-JVID_clone_before.json
-                git rm --ignore-unmatch  Git_State/CLONE.md
+                git rm --ignore-unmatch  git_state/CLONE.md
               fi
           else
               echo "GIST_ID not found. Creating a gist..."
@@ -56,7 +56,7 @@ jobs:
 
       - name: update Parsing-Media-From-JVID_clone.json
         run: |
-          curl https://raw.githubusercontent.com/Junwu0615/Parsing-Media-From-JVID/master/Git_State/clone.py > clone.py
+          curl https://raw.githubusercontent.com/Junwu0615/Parsing-Media-From-JVID/master/git_state/clone.py > clone.py
           python3 clone.py
 
       - name: Update gist with latest count
@@ -68,25 +68,25 @@ jobs:
             -H "Content-Type: application/json" \
             -d @Parsing-Media-From-JVID_post_clone.json https://api.github.com/gists/${{ steps.set_id.outputs.GIST }} > /dev/null 2>&1
 
-          if [ ! -f Git_State/CLONE.md ]; then
+          if [ ! -f git_state/CLONE.md ]; then
             shields="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count_total&url="
             url="https://gist.githubusercontent.com/${{ github.actor }}/${{ steps.set_id.outputs.GIST }}/raw/Parsing-Media-From-JVID_clone.json"
             repo="https://github.com/Junwu0615/Parsing-Media-From-JVID"
-            echo ''> Git_State/CLONE.md
+            echo ''> git_state/CLONE.md
             echo '
             **Markdown**
 
-            ```markdown' >> Git_State/CLONE.md
-            echo "[![GitHub Clones]($shields$url&logo=github)]($repo)" >> Git_State/CLONE.md
+            ```markdown' >> git_state/CLONE.md
+            echo "[![GitHub Clones]($shields$url&logo=github)]($repo)" >> git_state/CLONE.md
             echo '
             ```
 
             **HTML**
-            ```html' >> Git_State/CLONE.md
-            echo "<a href='$repo'><img alt='GitHub Clones' src='$shields$url&logo=github'></a>" >> Git_State/CLONE.md
-            echo '```' >> Git_State/CLONE.md
+            ```html' >> git_state/CLONE.md
+            echo "<a href='$repo'><img alt='GitHub Clones' src='$shields$url&logo=github'></a>" >> git_state/CLONE.md
+            echo '```' >> git_state/CLONE.md
             
-            git add Git_State/CLONE.md
+            git add git_state/CLONE.md
             git config --global user.name "GitHub Action"
             git config --global user.email "action@github.com"
             git commit -m "create clone count badge"

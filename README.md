@@ -28,7 +28,7 @@ python Entry.py -h
 - `-h` Help : Show this help message and exit.
 - `-t` Type : Give a want todo type | ex: image / mp4 `default: image`
 - `-u` URL : Give a url of JVID | ex: 'https://www.jvid.com/v/[PAGE_ID]' `default: ''`
-- `-p` Path : Give a save path | ex: './Media/' `default: Media`
+- `-p` Path : Give a save path | ex: './media/' `default: media`
 
 ## STEP.5　EXAMPLE
 
@@ -36,9 +36,9 @@ python Entry.py -h
 - 環境可能需要安裝 [FFmpeg](https://www.ffmpeg.org/download.html) 解包套件，請參考頁尾文章
 - 現階段非同步的下載作業有`卡死問題`，因此選擇 `一般執行 [2]` 就好
 
-  - ![00.jpg](/Sample/00.jpg) 
+  - ![00.jpg](/sample/00.jpg) 
   
-- 將 Depend 中的 `permissions_.txt` 變更檔名 `permissions.txt`，並修改內容。
+- 將 package `permissions_.txt` -> `permissions.txt` 修改內容。
   ```python
   authorization,[Fill In Your Authorization]
   cookie,[Fill In Your Cookie]
