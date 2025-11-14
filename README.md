@@ -8,6 +8,8 @@
 [![](https://img.shields.io/badge/Package-pycryptodome_3.21.0-green.svg?style=plastic)](https://pypi.org/project/pandas/) 
 [![](https://img.shields.io/badge/Package-ArgumentParser_1.2.1-green.svg?style=plastic)](https://pypi.org/project/argumentparser/) 
 
+<br>
+
 ## *STEP.1　CLONE*
 ```python
 git clone https://github.com/Junwu0615/Parsing-Media-From-JVID.git
