@@ -8,55 +8,63 @@
 [![](https://img.shields.io/badge/Package-pycryptodome_3.21.0-green.svg?style=plastic)](https://pypi.org/project/pandas/) 
 [![](https://img.shields.io/badge/Package-ArgumentParser_1.2.1-green.svg?style=plastic)](https://pypi.org/project/argumentparser/) 
 
-## STEP.1　CLONE
+## *STEP.1　CLONE*
 ```python
 git clone https://github.com/Junwu0615/Parsing-Media-From-JVID.git
 ```
 
-## STEP.2　INSTALL PACKAGES
+<br>
+
+## *STEP.2　INSTALL PACKAGES*
 ```python
 pip install -r requirements.txt
 ```
 
-## STEP.3　RUN
+<br>
+
+## *STEP.3　RUN*
 ```python
 python Entry.py -h
 ```
 
-## STEP.4　HELP
+<br>
 
+## *STEP.4　HELP*
 - `-h` Help : Show this help message and exit.
 - `-t` Type : Give a want todo type | ex: image / mp4 `default: image`
 - `-u` URL : Give a url of JVID | ex: 'https://www.jvid.com/v/[PAGE_ID]' `default: ''`
 - `-p` Path : Give a save path | ex: './media/' `default: media`
 
-## STEP.5　EXAMPLE
+<br>
 
-### I　執行前須注意事項
-- #### 環境可能需要安裝 [FFmpeg](https://www.ffmpeg.org/download.html) 解包套件，請參考頁尾文章
-- #### 現階段非同步的下載作業有`卡死問題`，因此選擇 `一般執行 [2]` 就好
+## *STEP.5　EXAMPLE*
+### *I　執行前須注意事項*
+- #### *環境可能需要安裝 [FFmpeg](https://www.ffmpeg.org/download.html) 解包套件，請參考頁尾文章*
+- #### *現階段非同步的下載作業有`卡死問題`，因此選擇 `一般執行 [2]`*
 
   - ![JPG](/sample/00.jpg) 
   
-- #### 將 package `permissions_.txt` -> `permissions.txt` 修改內容。
+- #### *將 package `permissions_.txt` -> `permissions.txt` 修改內容*
   ```python
   authorization,[Fill In Your Authorization] # 已移除
   cookie,[Fill In Your Cookie] # 從 F12 確認網路資源請求標頭帶入其中 Cookie 欄位
   ```
-  - #### 該網路資源同商品頁ID # `**PAGE_ID**`
+  - #### *該網路資源同商品頁ID `**PAGE_ID**`*
   - ![JPG](/sample/正確取得%20cookie%20位置.jpg)
   - ![JPG](/sample/cookie%20擺放示意.jpg)
   
-### II-A.　抓取網站影像 (.jpg)
+### *II-A.　抓取網站影像 ( .jpg )*
 ```python
 python Entry.py -t img -u https://www.jvid.com/v/**PAGE_ID**
 ```
 
-### II-B.　抓取網站串流影片 (.m3u8)
+### *II-B.　抓取網站串流影片 ( .m3u8 )*
 ```python
 python Entry.py -t mp4 -u https://www.jvid.com/v/**PAGE_ID**
 ```
 
-## 參考來源
+<br>
+
+## *Reference*
 - [FFmpeg Windows 安裝教學](https://vocus.cc/article/64701a2cfd897800014daed0)
 - [解碼 TS 串流媒體方式](https://cloud.tencent.com/developer/article/2258872)
