@@ -36,7 +36,7 @@ python Entry.py -h
 - #### 環境可能需要安裝 [FFmpeg](https://www.ffmpeg.org/download.html) 解包套件，請參考頁尾文章
 - #### 現階段非同步的下載作業有`卡死問題`，因此選擇 `一般執行 [2]` 就好
 
-  - ![00.jpg](/sample/00.jpg) 
+  - ![JPG](/sample/00.jpg) 
   
 - #### 將 package `permissions_.txt` -> `permissions.txt` 修改內容。
   ```python
@@ -44,7 +44,8 @@ python Entry.py -h
   cookie,[Fill In Your Cookie] # 從 F12 確認網路資源請求標頭帶入其中 Cookie 欄位
   ```
   - #### 該網路資源同商品頁ID # `**PAGE_ID**`
-  - ![00.jpg](/sample/正確取得%20cookie%20位置.jpg) 
+  - ![JPG](/sample/正確取得%20cookie%20位置.jpg)
+  - ![JPG](/sample/cookie%20擺放示意.jpg)
   
 ### II-A.　抓取網站影像 (.jpg)
 ```python
