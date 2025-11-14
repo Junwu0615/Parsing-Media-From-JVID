@@ -5,10 +5,10 @@ Update Time: 2024-12-15
 
 解碼參考來源: https://cloud.tencent.com/developer/article/2258872
 """
+import os, requests, subprocess
 from tqdm import tqdm
 from dateutil import tz
 from datetime import datetime
-import os, requests, subprocess
 from bs4 import BeautifulSoup
 from Crypto.Cipher import AES
 from rich.console import Console
@@ -19,7 +19,10 @@ class ParsingMediaLogic:
     def __init__(self, obj):
         self.type = obj.type
         self.url = obj.url
-        self.path = os.getcwd() + '\\' + obj.path
+        if obj.path is None:
+            self.path = os.getcwd() + '\\media'
+        else:
+            self.path = os.getcwd() + '\\' + obj.path
         self.console = Console()
 
         self.log_record()
@@ -45,8 +48,9 @@ class ParsingMediaLogic:
         txt = [i for i in open(os.getcwd() + '\\package\\permissions.txt', 'r')]
         headers = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
-            'authorization': txt[0].split(',')[-1].replace('\n', ''),
-            'cookie': txt[1].split(',')[-1].replace('\n', ''),
+            # 'authorization': txt[0].split(',')[-1].replace('\n', ''),
+            # 'cookie': txt[1].split(',')[-1].replace('\n', ''),
+            'cookie': txt[0].split(',')[-1].replace('\n', ''),
             }
         return headers
 
@@ -62,6 +66,7 @@ class ParsingMediaLogic:
         return datetime.fromtimestamp(datetime.utcnow().timestamp() + 28800).replace(tzinfo=tz.gettz('Asia/Taipei'))
 
     def log_record(self):
+        ParsingMediaLogic.check_folder(self.path)
         file = self.path + '\\downloads_log.txt'
         content = f'{str(ParsingMediaLogic.utc_to_now())[:19]} | {self.url}\n'
         if not os.path.exists(file):
@@ -242,7 +247,6 @@ class ParsingMediaLogic:
                     new_task = {}
 
     def main(self):
-        ParsingMediaLogic.check_folder(self.path)
         self.progress_bar('Args')
         self.identify_type_operation()
         self.progress_bar('Finish_Task')

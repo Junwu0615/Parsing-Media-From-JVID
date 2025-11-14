@@ -40,8 +40,8 @@ python Entry.py -h
   
 - 將 package `permissions_.txt` -> `permissions.txt` 修改內容。
   ```python
-  authorization,[Fill In Your Authorization]
-  cookie,[Fill In Your Cookie]
+  authorization,[Fill In Your Authorization] # 已移除
+  cookie,[Fill In Your Cookie] # 從 F12 確認網路資源請求標頭帶入其中 Cookie 欄位
   ```
   
 ### II-A.　抓取網站影像 (.jpg)

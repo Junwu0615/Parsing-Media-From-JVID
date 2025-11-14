@@ -1,2 +1,1 @@
-authorization,[Fill In Your Authorization]
 cookie,[Fill In Your Cookie]
